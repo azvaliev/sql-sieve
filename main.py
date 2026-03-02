@@ -88,7 +88,9 @@ def main():
         args = SFTConfig(
             output_dir="/checkpoints",
             report_to="wandb",
-            num_train_epochs=3, # fairly small dataset
+            # this seemed to deliver the best gains and not overfit too much
+            # eval dataset was doing well
+            num_train_epochs=3,
             per_device_train_batch_size=8, # h100 baby lfg
             learning_rate=2e-4,
             logging_steps=5,
